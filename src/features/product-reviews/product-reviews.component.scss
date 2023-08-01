@@ -1,0 +1,35 @@
+$element-gap: 25px;
+.product-reviews{
+    display: block;
+    margin-top: $element-gap;
+    border-top: 1px solid lightgray;
+    min-height: 40vh;
+    > mat-paginator{
+        margin-top: $element-gap;
+    }
+    > div:nth-child(1){
+        display: grid;
+        gap: $element-gap;
+        margin-top: $element-gap;
+        grid-template-columns: auto auto auto;
+        > div[review-element]{
+            border: 1px solid chartreuse;
+            padding: 35px;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .product-reviews{
+        > div:nth-child(1){
+            grid-template-columns: auto auto;
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    .product-reviews{
+        > div:nth-child(1){
+            grid-template-columns: auto;
+        }
+    }
+}

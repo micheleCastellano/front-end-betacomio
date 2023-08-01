@@ -1,0 +1,49 @@
+<section>
+    <article>
+        <div>
+            <div class="nav-tab">
+                <button id="btnp" #recent_tab type="button" class="tab-button" [ngClass]="{'nav-active' : currentTab === 'recent'}" (click)="tab_switch(recent_tab)">Ordini recenti</button>
+                <button id="btns" #past_tab type="button" class="tab-button" [ngClass]="{'nav-active' : currentTab === 'past'}" (click)="tab_switch(past_tab)">Ordini passati</button>
+            </div>
+            <div [ngSwitch]="currentTab">
+                <div *ngSwitchCase="'recent'" class="tab">
+                    <div class="card">
+                        <div>
+                            
+                        </div>
+                        <div>
+                            <div>
+
+                            </div>
+                            <div>
+                                <h4>Titolo del prodotto</h4>
+                                <span>Prezzo: </span>
+                                <small>Stato: <span>Annullato</span></small>
+                                <small class="date">Ordine effettuato il: 23-04-2009</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                </div>
+                <div *ngSwitchCase="'past'" class="tab">
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

@@ -1,0 +1,131 @@
+section {
+  display: flex;
+  justify-content: center;
+  background-color: var(--gray-background);
+  > article {
+    width: var(--width-desktop);
+    padding: var(--general-padding);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    > div {
+      > .nav-tab {
+        overflow: hidden;
+        background-color: var(--white);
+        color: var(--white);
+        > button {
+          float: left;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          padding: 14px 16px;
+          transition: 200ms;
+          font-size: 17px;
+          color: var(--primary-dark);
+          transition: 200ms background-color;
+          background-color: transparent;
+        }
+        > button:hover {
+          transition: 200ms background-color;
+          background-color: var(--primary-dark);
+          color: var(--white);
+        }
+
+        .nav-active {
+          color: var(--700);
+          transition: 300ms background-color;
+          background-color: var(--white);
+          border-top: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-bottom: 1px solid white;
+        }
+        .nav-active:hover {
+          color: var(--700);
+          transition: 300ms background-color;
+          background-color: var(--white);
+        }
+      }
+
+      > div {
+        z-index: 1;
+        margin-bottom: -1px;
+        > .tab {
+          display: grid;
+          gap: 15px;
+          min-height: 50vh;
+          padding: 15px;
+          background-color: var(--white);
+          border: 1px solid lightgray;
+          grid-template-columns: auto auto auto;
+          > .card {
+            padding: 25px;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            background-color: var(--white);
+            > div:nth-child(1) {
+              display: block;
+              > small {
+                opacity: 0.5;
+                font-size: 12px;
+              }
+            }
+            > div:nth-child(2) {
+              display: flex;
+              > div:nth-child(1) {
+                flex: 30%;
+              }
+              > div:nth-child(2) {
+                flex: 70%;
+                > span,
+                small {
+                  display: block;
+                }
+                > small {
+                  margin-top: 25px;
+                }
+                > .date {
+                  opacity: 0.5;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  section {
+    > article {
+      > div {
+        > .nav-tab {
+          display: flex;
+          > button[type="button"] {
+            flex: 1;
+          }
+        }
+        > div {
+          > .tab {
+            grid-template-columns: auto auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  section {
+    > article {
+      > div {
+        > div {
+          > .tab {
+            grid-template-columns: auto;
+          }
+        }
+      }
+    }
+  }
+}

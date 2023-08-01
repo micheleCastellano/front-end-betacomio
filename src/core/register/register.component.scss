@@ -1,0 +1,149 @@
+$card-min-height: 50vh;
+$card-width: 57vh;
+$form-text-font-size: 15px;
+
+section {
+  display: flex;
+  padding: 50px 0px;
+  justify-content: center;
+
+  > article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: $card-min-height;
+    width: var(--width-desktop);
+    padding: var(--general-padding);
+
+    > .card {
+      display: flex;
+      align-items: center;
+      width: $card-width;
+      padding: 10px 30px 35px 30px;
+      border: 1px solid lightgray;
+      background-color: var(--white);
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      min-height: $card-min-height;
+      box-shadow: 4px 5px 5px -5px rgba(0, 0, 0, 0.35);
+      -webkit-box-shadow: 4px 5px 5px -5px rgba(0, 0, 0, 0.35);
+
+      > form {
+        width: 100%;
+        > div:nth-child(1) {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          > .mex-error-container {
+            flex: 100%;
+            display: block;
+            > span {
+              color: red;
+              font-size: 13px;
+            }
+          }
+          > .form-group {
+            flex: 100%;
+            > a {
+              text-decoration: none;
+              color: dodgerblue;
+              font-size: 12px;
+            }
+            > a:visited {
+              color: dodgerblue;
+            }
+            > a:hover {
+              text-decoration: underline;
+              color: var(--primary);
+            }
+
+            > input {
+              width: 100%;
+              padding: 12px;
+              outline: none;
+              box-sizing: border-box;
+              border: 1px solid lightgray;
+              font-size: $form-text-font-size;
+            }
+            > .bt-full {
+              width: 100%;
+              color: white;
+              padding: 12px;
+              outline: none;
+              margin-top: 2px;
+              border: 1px solid lightgray;
+              font-size: $form-text-font-size;
+              background-color: var(--primary);
+              border-radius: 10px;
+              transition: 150ms background-color;
+            }
+            > .bt-full:hover {
+              transition: 150ms background-color;
+              background-color: var(--primary-dark);
+              cursor: pointer;
+            }
+
+            > a > .bt-empty {
+              width: 100%;
+              color: var(--primary);
+              padding: 12px;
+              outline: none;
+              margin-top: 2px;
+              border: 1px solid var(--primary);
+              font-size: $form-text-font-size;
+              background-color: var(--white);
+              border-radius: 10px;
+              transition: 150ms background-color;
+            }
+            > a > .bt-empty:hover {
+              transition: 150ms background-color;
+              background-color: var(--gray-background);
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//tablet
+@media screen and (max-width: 1200px) {
+  section {
+    padding: 5px 0px;
+    > article {
+      width: 100%;
+      > .card {
+        width: 70vh;
+        padding: 10px 30px 30px 30px;
+        min-height: calc($card-min-height - 15vh);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  section {
+    padding: 5px 0px;
+    > article {
+      width: 100%;
+      > .card {
+        width: 30vh;
+        min-height: calc($card-min-height - 15vh);
+      }
+    }
+  }
+}
+
+//phone
+@media screen and (max-width: 600px) {
+  section {
+    padding: 5px 0px;
+    > article {
+      width: 100%;
+      > .card {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,205 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$Front-End-primary: mat.define-palette(mat.$indigo-palette);
+$Front-End-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$Front-End-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$Front-End-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $Front-End-primary,
+      accent: $Front-End-accent,
+      warn: $Front-End-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($Front-End-theme);
+
+// Style root web application
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+:root {
+  --blue: #0073e6;
+  --indigo: #554dff;
+  --purple: #9e99ff;
+  --pink: #ffb3bf;
+  --red: #f73e5a;
+  --orange: #ff9900;
+  --orange-dark: #e38800;
+  --yellow: #ffda73;
+  --green: #00cc85;
+  --teal: #0bd9d2;
+  --cyan: #00fff7;
+  --white: white;
+  --gray: #656566;
+  --gray-dark: #323333;
+  --gray-secondary: #5c6f82;
+  --gray-tertiary: #5a768a;
+  --gray-quaternary: #fcfdff;
+  --gray-background: #f2f2f2;
+  --primary: #0066cc;
+  --primary-dark: #004a94;
+  --secondary: #13f694;
+  --third: #89fbc9;
+  --success: #008758;
+  --info: #979899;
+  --warning: #a66300;
+  --danger: #d9364f;
+  --light: #e9e6f2;
+  --dark: #17324d;
+  --black: black;
+  --white: white;
+  --100: #e3e4e6;
+  --200: #cacacc;
+  --300: #b1b1b3;
+  --400: #979899;
+  --500: #7e7f80;
+  --700: #4c4c4d;
+  --800: #323333;
+  --900: #19191a;
+  --width-desktop: 2000px;
+  --general-padding: 4px 25px 4px 25px;
+  background-color: var(--gray-background);
+  font-family: "Spartan", sans-serif;
+}
+
+//checkbox css
+.control {
+  font-family: arial;
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 5px;
+  padding-top: 3px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.control_indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #e6e6e6;
+  border: 0px solid #f2f2f2;
+  border-radius: 0px;
+}
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+  background: #cccccc;
+}
+
+.control input:checked ~ .control_indicator {
+  background: var(--primary);
+}
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+  background: var(--primary-dark);
+}
+.control input:disabled ~ .control_indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.control_indicator:after {
+  box-sizing: unset;
+  content: "";
+  position: absolute;
+  display: none;
+}
+.control input:checked ~ .control_indicator:after {
+  display: block;
+}
+.control-checkbox .control_indicator:after {
+  left: 8px;
+  top: 4px;
+  width: 3px;
+  height: 8px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.control-checkbox input:disabled ~ .control_indicator:after {
+  border-color: #7b7b7b;
+}
+.control-checkbox .control_indicator::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin-left: -1.3rem;
+  margin-top: -1.3rem;
+  background: var(--blue);
+  border-radius: 3rem;
+  opacity: 0.6;
+  z-index: 99999;
+  transform: scale(0);
+}
+@keyframes s-ripple {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+@keyframes s-ripple-dup {
+  0% {
+    transform: scale(0);
+  }
+  30% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+.control-checkbox input + .control_indicator::before {
+  animation: s-ripple 250ms ease-out;
+}
+.control-checkbox input:checked + .control_indicator::before {
+  animation-name: s-ripple-dup;
+}

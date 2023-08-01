@@ -1,0 +1,25 @@
+<div class="cart">
+  <button class="btnContinua">Vai all'ordine</button>
+
+  <div *ngFor="let p of prodotti" class="cart-item">
+    <div class="cart-item__image">
+      <img src="{{ p.urlImage }}" alt="" />
+    </div>
+    <div class="cart-item__information">
+      <h3 class="cart-item__name">{{ p.nome }}</h3>
+      <div class="cart-item__quantity">
+        <div class="cart-item__price">
+          {{ p.prezzoTotale | currency : "€ " }}
+        </div>
+        <div class="cart-item__number">{{ p.quantita }}</div>
+        <div class="cart-item__add-button"><button>+</button></div>
+        <div class="cart-item__remove-button"><button>-</button></div>
+      </div>
+    </div>
+    <button class="cart-item__delete">Rimuovi</button>
+  </div>
+  <div class="cart-total">
+    <p>Totale {{ totale | currency : "€ " }}</p>
+    <button class="btnContinua">Vai all'ordine</button>
+  </div>
+</div>
